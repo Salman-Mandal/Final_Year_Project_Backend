@@ -73,10 +73,12 @@ exports.loginUser = catchAsyncError(
             return next(new ErrorHandler("Invalid email or password"), 401);
         }
 
-        res.status(200).json({
-            success: true,
-            user,
-        });
+        // res.status(200).json({
+        //     success: true,
+        //     user,
+        // });
+
+        sendToken(user, res, 200);
     }
 )
 
